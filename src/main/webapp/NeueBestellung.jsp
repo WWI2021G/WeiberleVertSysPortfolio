@@ -23,27 +23,27 @@
         <th>Einzelpreis</th>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlCola" value="0" min="0"></td>
+        <td><input type="number" name="anzahlCola" value="0" min="0"></td>
         <td style="text-align: center;">Cola</td>
         <td style="text-align: right;">3,90&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlFanta" value="0" min="0"></td>
+        <td><input type="number" name="anzahlFanta" value="0" min="0"></td>
         <td style="text-align: center;">Fanta</td>
         <td style="text-align: right;">3,80&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlSprite" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSprite" value="0" min="0"></td>
         <td style="text-align: center;">Sprite</td>
         <td style="text-align: right;">3,50&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlWasser" value="0" min="0"></td>
+        <td><input type="number" name="anzahlWasser" value="0" min="0"></td>
         <td style="text-align: center;">Wasser</td>
         <td style="text-align: right;">1,80&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlApfel" value="0" min="0"></td>
+        <td><input type="number" name="anzahlApfel" value="0" min="0"></td>
         <td style="text-align: center;">Apfelsaftschorle</td>
         <td style="text-align: right;">2,70&euro;</td>
       </tr>
@@ -57,27 +57,27 @@
         <th>Einzelpreis</th>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlSchnitzel" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSchnitzel" value="0" min="0"></td>
         <td style="text-align: center;">Schnitzel mit Pommes</td>
         <td style="text-align: right;">18,70&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlKäsespätzle" value="0" min="0"></td>
+        <td><input type="number" name="anzahlKäsespätzle" value="0" min="0"></td>
         <td style="text-align: center;">K&auml;sesp&auml;tzle</td>
         <td style="text-align: right;">16,40&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlSpaghetti" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSpaghetti" value="0" min="0"></td>
         <td style="text-align: center;">Spaghetti Bolognese</td>
         <td style="text-align: right;">17,50&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlChicken" value="0" min="0"></td>
+        <td><input type="number" name="anzahlChicken" value="0" min="0"></td>
         <td style="text-align: center;">Chicken Nuggets</td>
         <td style="text-align: right;">12,30&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="AnzahlPommes" value="0" min="0"></td>
+        <td><input type="number" name="anzahlPommes" value="0" min="0"></td>
         <td style="text-align: center;">Pommes</td>
         <td style="text-align: right;">8,70&euro;</td>
       </tr>
