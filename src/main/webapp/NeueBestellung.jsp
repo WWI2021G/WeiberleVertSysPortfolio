@@ -62,7 +62,7 @@
         <td style="text-align: right;">18,70&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlKäsespätzle" value="0" min="0"></td>
+        <td><input type="number" name="anzahlKaesespaetzle" value="0" min="0"></td>
         <td style="text-align: center;">K&auml;sesp&auml;tzle</td>
         <td style="text-align: right;">16,40&euro;</td>
       </tr>
