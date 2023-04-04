@@ -12,7 +12,7 @@
 
   <h1>Neue Bestellung erstellen</h1>
 
-  <form action="AusgabeNeueBestellung.jsp">
+  <form action="UmleitungNeueBestellung.jsp">
     <h2>F&uuml;r welchen Tisch wollen Sie eine Rechnung &ouml;ffnen</h2>
     <input type="number" name="tischNr" min="1" max="5" required="required"><br>
     <h2>Getr&auml;nke ausw&auml;hlen</h2>
