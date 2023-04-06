@@ -6,20 +6,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
 </head>
 
 <body>
 
   <h1>Neue Bestellung erstellen</h1>
 
-  <form action="AusgabeNeueBestellung.jsp">
-    <h2>F&uuml;r welchen Tisch wollen Sie eine Rechnung &ouml;ffnen</h2>
+  <form action="UmleitungNeueBestellung.jsp">
+    <h2>F&uuml;r welchen Tisch wollen Sie eine Rechnung &ouml;ffnen?</h2>
     <input type="number" name="tischNr" min="1" max="5" required="required"><br>
     <h2>Getr&auml;nke ausw&auml;hlen</h2>
     <table>
       <tr>
         <th>Anzahl</th>
-        <th>Getr&auml;nk</th>
+        <th style="width: 300px;">Getr&auml;nk</th>
         <th>Einzelpreis</th>
       </tr>
       <tr>
@@ -53,7 +61,7 @@
       <h2>Essen ausw&auml;hlen</h2>
       <tr>
         <th>Anzahl</th>
-        <th>Essen</th>
+        <th style="width: 300px;">Essen</th>
         <th>Einzelpreis</th>
       </tr>
       <tr>

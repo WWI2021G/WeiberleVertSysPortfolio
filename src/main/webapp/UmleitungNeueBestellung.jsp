@@ -7,12 +7,13 @@
   <title>TestAusgabe</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0.1; URL=index.jsp" />
   <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Bestellungs Übersicht:</h1>
-  <h2>Die Bestellung wurde f&uml;r Tisch
+  <h1>Bestellungs &Uuml;bersicht:</h1>
+  <h2>Die Bestellung wurde f&uuml;r Tisch
     <jsp:getProperty name="form" property="tischNr" /> angelegt
   </h2>
   <table>
@@ -82,8 +83,6 @@
     </tr>
   </table>
 
-  <a href="index.jsp"><button type="button">Best&auml;tigen</button></a>
-  <a href="NeueBestellung.jsp"><button type="button">Bestellung wiederholen</button></a>
 </body>
 
 </html>
