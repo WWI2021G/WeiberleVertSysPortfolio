@@ -17,20 +17,17 @@
     bestehenden Tisch ver&auml;ndern und die Rechnung erstellen lassen.<br>
   </p>
 
-  <form action="NeueBestellung.jsp">
-    <button type="submit">Neue Bestellung</button>
-  </form>
-
-  <form action="AlteBestellung.jsp">
-    <input type="number" name="nummerBearbeitenBestellung">Die Bestellung welcher Tischnummer soll bearbeitet
-    werden?</input>
+  <h1>Bestellung</h1>
+  <form action="Bestellung.jsp">
+    <label for="tischNr">Geben Sie die gew&uuml;nschte Tischnumer ein:</label><br>
+    <input type="number" id="tischNr" name="tischNr" min="1" max="5" required="required">
     <button type="submit">Bestellung bearbeiten</button>
   </form>
 
-  <form action="RechnungGen.jsp">
-    <input type="number" name="nummerBearbeitenBestellung">F&uuml;r welchen Tisch soll eine Rechnung erstellt
-    werden?</input>
-    <input type="text" name="rechnungsart">Wollen die G&auml;ste zusammen oder separat zahlen?</input>
+  <h1>Rechnung</h1>
+  <form action="Rechnung.jsp">
+    <label for="tischNr">Geben Sie die gew&uuml;nschte Tischnumer ein:</label><br>
+    <input type="number" id="tischNr" name="tischNr" min="1" max="5" required="required">
     <button type="submit">Rechnung erstellen</button>
   </form>
 </body>

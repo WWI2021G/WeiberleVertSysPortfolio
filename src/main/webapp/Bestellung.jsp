@@ -1,3 +1,6 @@
+<jsp:useBean class="beans.FormBean" id="form" scope="session" />
+<jsp:setProperty name="form" property="tischNr" />
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -18,11 +21,9 @@
 
 <body>
 
-  <h1>Neue Bestellung erstellen</h1>
+  <h1>Bestellung f&uuml;r Tisch</h1>
 
-  <form action="UmleitungNeueBestellung.jsp">
-    <h2>F&uuml;r welchen Tisch wollen Sie eine Rechnung &ouml;ffnen?</h2>
-    <input type="number" name="tischNr" min="1" max="5" required="required"><br>
+  <form action="UmleitungBestellung.jsp">
     <h2>Getr&auml;nke ausw&auml;hlen</h2>
     <table>
       <tr>
@@ -31,27 +32,32 @@
         <th>Einzelpreis</th>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlCola" value="0" min="0"></td>
+        <td><input type="number" name="anzahlCola" value="<jsp:getProperty name='form' property='anzahlCola' />"
+            min="0"></td>
         <td style="text-align: center;">Cola</td>
         <td style="text-align: right;">3,90&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlFanta" value="0" min="0"></td>
+        <td><input type="number" name="anzahlFanta" value="<jsp:getProperty name='form' property='anzahlFanta' />"
+            min="0"></td>
         <td style="text-align: center;">Fanta</td>
         <td style="text-align: right;">3,80&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlSprite" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSprite" value="<jsp:getProperty name='form' property='anzahlSprite' />"
+            min="0"></td>
         <td style="text-align: center;">Sprite</td>
         <td style="text-align: right;">3,50&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlWasser" value="0" min="0"></td>
+        <td><input type="number" name="anzahlWasser" value="<jsp:getProperty name='form' property='anzahlWasser' />"
+            min="0"></td>
         <td style="text-align: center;">Wasser</td>
         <td style="text-align: right;">1,80&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlApfel" value="0" min="0"></td>
+        <td><input type="number" name="anzahlApfel" value="<jsp:getProperty name='form' property='anzahlApfel' />"
+            min="0"></td>
         <td style="text-align: center;">Apfelsaftschorle</td>
         <td style="text-align: right;">2,70&euro;</td>
       </tr>
@@ -65,32 +71,39 @@
         <th>Einzelpreis</th>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlSchnitzel" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSchnitzel"
+            value="<jsp:getProperty name='form' property='anzahlSchnitzel' />" min="0"></td>
         <td style="text-align: center;">Schnitzel mit Pommes</td>
         <td style="text-align: right;">18,70&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlKaesespaetzle" value="0" min="0"></td>
+        <td><input type="number" name="anzahlKaesespaetzle"
+            value="<jsp:getProperty name='form' property='anzahlKaesespaetzle' />" min="0"></td>
         <td style="text-align: center;">K&auml;sesp&auml;tzle</td>
         <td style="text-align: right;">16,40&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlSpaghetti" value="0" min="0"></td>
+        <td><input type="number" name="anzahlSpaghetti"
+            value="<jsp:getProperty name='form' property='anzahlSpaghetti' />" min="0"></td>
         <td style="text-align: center;">Spaghetti Bolognese</td>
         <td style="text-align: right;">17,50&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlChicken" value="0" min="0"></td>
+        <td><input type="number" name="anzahlChicken" value="<jsp:getProperty name='form' property='anzahlChicken' />"
+            min="0"></td>
         <td style="text-align: center;">Chicken Nuggets</td>
         <td style="text-align: right;">12,30&euro;</td>
       </tr>
       <tr>
-        <td><input type="number" name="anzahlPommes" value="0" min="0"></td>
+        <td><input type="number" name="anzahlPommes" value="<jsp:getProperty name='form' property='anzahlPommes' />"
+            min="0"></td>
         <td style="text-align: center;">Pommes</td>
         <td style="text-align: right;">8,70&euro;</td>
       </tr>
     </table><br>
     <button type="submit">Bestellung absenden</button>
+    <a href="index.jsp"><button type="button">Bestellung abbrechen</button></a>
+
   </form>
 
 </body>
