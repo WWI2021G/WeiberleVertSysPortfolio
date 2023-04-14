@@ -1,3 +1,6 @@
+<jsp:useBean class="beans.FormBean" id="form" scope="session" />
+<jsp:setProperty name="form" property="tischNr" />
+
 <!DOCTYPE html>
 <html lang="de">
 
