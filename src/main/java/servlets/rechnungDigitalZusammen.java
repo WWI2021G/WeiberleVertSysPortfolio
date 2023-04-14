@@ -24,7 +24,7 @@ public class rechnungDigitalZusammen extends HttpServlet {
     out.println("<title>Rechnungsservlet</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>" + orderBean.getTischNr() + orderBean.isOrderOpen() + "</h1>");
+    util.displayOrder(out, orderBean);
     out.println("</body>");
     out.println("</html>");
   }
