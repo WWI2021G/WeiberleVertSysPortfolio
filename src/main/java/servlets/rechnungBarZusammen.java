@@ -24,7 +24,14 @@ public class rechnungBarZusammen extends HttpServlet {
     out.println("<title>Rechnungsservlet</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>" + orderBean.getTischNr() + "</h1>");
+    out.println("<h1>Offen stehende Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + ":</h1>");
+    util.displayOrder(out, orderBean);
+    out.println("<br>");
+    out.println("<form action=\"" + req.getContextPath() + "/rechnung/bar/zusammen\" method=\"POST\">");
+    out.println("<h3>Der gegebene Betrag lautet:</h3>");
+    out.println("<input type=\"number\" name=\"gegebenesGeld\" min=\"" + util.getGesamtPreis(out, orderBean) + "\" step=\"0.01\" required=\"required\">");
+    out.println("<button type=\"submit\">R&uuml;ckgeld berechnen</button>");
+    out.println("</form>");
     out.println("</body>");
     out.println("</html>");
   }
