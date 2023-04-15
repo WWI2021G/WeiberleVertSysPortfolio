@@ -101,4 +101,10 @@ public class FormBean {
     }
     return false;
   }
+
+  public void payFull() {
+    for (int i = 0; i < tische[tischNr - 1].length; i++) {
+      tische[tischNr - 1][i] = 0;
+    }
+  }
 }
