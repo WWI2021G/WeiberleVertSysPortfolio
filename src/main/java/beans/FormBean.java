@@ -92,4 +92,19 @@ public class FormBean {
   public void setAnzahlPommes(int anzahlPommes) {
     tische[tischNr - 1][9] = anzahlPommes;
   }
+
+  public boolean isOrderOpen() {
+    for (int i = 0; i < tische[tischNr - 1].length; i++) {
+      if ( tische[tischNr - 1][i] != 0 ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void payFull() {
+    for (int i = 0; i < tische[tischNr - 1].length; i++) {
+      tische[tischNr - 1][i] = 0;
+    }
+  }
 }

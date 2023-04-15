@@ -7,8 +7,12 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Daten von neuen Bestellungen einlesen
 - [x] Maske & Logik für das Bearbeiten von Bestellungen
 - [x] Struktur überarbeiten
-- [ ] Maske für den Rechnungsteil
-- [ ] Gesamtrechnungslogik
-- [ ] Einzelrechnungslogik
-- [ ] Rabatt Funktion implementieren
+- [x] Grundaufbau Rechnung
+- [x] Gemeinsam bezahlte Rechnung mit Karte
+- [x] Gemeinsam bezahlte Rechnung bar
+- [ ] Getrennt bezahlte Rechnung mit Karte
+- [ ] Getrennt bezahlte Rechnung bar
+- [ ] Rabattcodes
+- [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
 - [ ] ...
+- [ ] Dokumentation LaTeX
