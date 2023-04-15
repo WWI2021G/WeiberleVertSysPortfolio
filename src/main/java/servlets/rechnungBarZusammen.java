@@ -35,5 +35,25 @@ public class rechnungBarZusammen extends HttpServlet {
     out.println("</body>");
     out.println("</html>");
   }
-}
 
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    HttpSession session = req.getSession(true);
+    FormBean orderBean = (FormBean) session.getAttribute("form");
+    resp.setContentType("text/html");
+    PrintWriter out = resp.getWriter();
+    out.println("<html>");
+    out.println("<head>");
+    out.println("<title>Rechnungsservlet</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("<h1>Die Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + " wurde beglichen:</h1>");
+    out.println("<h2>Bei einer Rechnung von " + String.format("%.2f", util.getGesamtPreis(out, orderBean)) + "&euro; wurden " + String.format("%.2f", Float.parseFloat(req.getParameter("gegebenesGeld"))) + "&euro; gezahlt.</h2>");
+    out.println("<h2>Das ergibt ein R&uuml;ckgeld von " + String.format("%.2f", (Float.parseFloat(req.getParameter("gegebenesGeld")) - util.getGesamtPreis(out, orderBean))) + "&euro;</h2>");
+    out.println("<form action=\"" + req.getContextPath() + "/rechnung/bar/zusammen/bezahlt\" method=\"POST\">");
+    out.println("<button type=\"submit\">R&uuml;ckgeld gegeben</button>");
+    out.println("</form>");
+    out.println("</body>");
+    out.println("</html>");
+  }
+}
