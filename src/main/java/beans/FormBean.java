@@ -95,7 +95,7 @@ public class FormBean {
 
   public boolean isOrderOpen() {
     for (int i = 0; i < tische[tischNr - 1].length; i++) {
-      if (tische[tischNr -1 ][i] != 0) {
+      if ( tische[tischNr - 1][i] != 0 ) {
         return true;
       }
     }
