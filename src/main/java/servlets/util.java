@@ -24,7 +24,7 @@ public class util {
     out.println("<tr>");
     out.println("<td>Gesamt</td>");
     out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "</td>");
+    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</table>");
   }
 
