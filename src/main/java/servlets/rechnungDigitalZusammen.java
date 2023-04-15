@@ -33,4 +33,12 @@ public class rechnungDigitalZusammen extends HttpServlet {
     out.println("</body>");
     out.println("</html>");
   }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    HttpSession session = req.getSession(true);
+    FormBean orderBean = (FormBean) session.getAttribute("form");
+    orderBean.payFull();
+    resp.sendRedirect(req.getContextPath() + "/index.jsp");
+  }
 }
