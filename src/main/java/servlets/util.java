@@ -31,6 +31,25 @@ public class util {
     out.println("</table>");
   }
 
+  public static void splitOrder(PrintWriter out, FormBean orderBean) throws IOException {
+    out.println("<table>");
+    out.println("<tr>");
+    out.println("<th>Produkt</th>");
+    out.println("<th>Menge</th>");
+    out.println("<th>Preis</th>");
+    out.println("<th>Person zahlt</th>");
+    out.println("</tr>");
+    out.println("<tr>");
+    orderChecker(out, orderBean, true);
+
+    // TODO: Implement Rabatt
+    out.println("<tr>");
+    out.println("<td>Gesamt</td>");
+    out.println("<td></td>");
+    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
+    out.println("</table>");
+  }
+
   public static void orderChecker(PrintWriter out, FormBean orderBean, boolean split) throws IOException {
     gesamtPreis = 0;
 
