@@ -76,6 +76,21 @@ public class util {
     }
   }
 
+  public static void payOne(PrintWriter out, FormBean orderBean, String product, int amount) {
+    String setterCall = "setAnzahl" + product;
+    String getterCall = "getAnzahl" + product;
+    Method setter, getter;
+    try {
+      setter = FormBean.class.getMethod(setterCall, int.class);
+      getter = FormBean.class.getMethod(getterCall);
+      int newAnzahl = (int) getter.invoke(orderBean) - amount;
+      setter.invoke(orderBean, newAnzahl);
+    } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+      out.println(e);
+      e.printStackTrace();
+    }
+  }
+
   public static float getGesamtPreis(PrintWriter out, FormBean orderBean) {
     String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
     double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
