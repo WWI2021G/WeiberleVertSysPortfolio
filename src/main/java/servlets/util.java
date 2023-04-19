@@ -21,7 +21,7 @@ public class util {
     out.println("<th>Preis</th>");
     out.println("</tr>");
     out.println("<tr>");
-    orderChecker(out, orderBean);
+    orderChecker(out, orderBean, false);
 
     // TODO: Implement Rabatt
     out.println("<tr>");
@@ -31,7 +31,7 @@ public class util {
     out.println("</table>");
   }
 
-  public static void orderChecker(PrintWriter out, FormBean orderBean) throws IOException {
+  public static void orderChecker(PrintWriter out, FormBean orderBean, boolean split) throws IOException {
     gesamtPreis = 0;
 
     for (int i = 0; i < products.length; i++) {
@@ -44,6 +44,9 @@ public class util {
           out.println("<td>" + productNames[i] + "</td>");
           out.println("<td>" + anzahl + "</td>");
           out.println("<td>" + String.format("%.2f", anzahl * prices[i]) + "&euro;</td>");
+          if ( split ) {
+            out.println("<td><input type=\"number\" name=\"" + i + "\" min=\"0\" max=\"" + anzahl + "\" value=\"0\"></td>");
+          }
           out.println("</tr>");
           gesamtPreis += (anzahl * prices[i]);
         }
