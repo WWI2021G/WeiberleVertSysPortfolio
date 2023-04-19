@@ -60,6 +60,7 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("<br>");
     out.println("<form action=\"" + req.getContextPath() + "/rechnung/digital/getrennt/zahlen\" method=\"GET\">");
     out.println("<button type=\"submit\">Betrag bezahlt</button>");
+    out.println("<a href=\"" + req.getContextPath() + "/rechnung/digital/getrennt\"><button type=\"button\">Abbrechen</button></a>");
     out.println("</form>");
     out.println("</body>");
     out.println("</html>");
