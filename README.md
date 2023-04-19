@@ -10,7 +10,7 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Grundaufbau Rechnung
 - [x] Gemeinsam bezahlte Rechnung mit Karte
 - [x] Gemeinsam bezahlte Rechnung bar
-- [ ] Getrennt bezahlte Rechnung mit Karte
+- [x] Getrennt bezahlte Rechnung mit Karte
 - [ ] Getrennt bezahlte Rechnung bar
 - [ ] Rabattcodes
 - [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
