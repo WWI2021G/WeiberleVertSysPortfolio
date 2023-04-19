@@ -24,7 +24,12 @@ public class rechnungDigitalGetrennt extends HttpServlet {
     out.println("<title>Rechnungsservlet</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>" + orderBean.getTischNr() + "</h1>");
+    out.println("<h1>Offen stehende Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + ":</h1>");
+    out.println("<form action=\"" + req.getContextPath() + "/rechnung/digital/getrennt/zahlen\" method=\"POST\">");
+    util.splitOrder(out, orderBean);
+    out.println("<button type=\"submit\">Bezahlen</button>");
+    out.println("<a href=\"" + req.getContextPath() + "/index.jsp\"><button type=\"button\">Abbrechen</button></a>");
+    out.println("</form>");
     out.println("</body>");
     out.println("</html>");
   }
