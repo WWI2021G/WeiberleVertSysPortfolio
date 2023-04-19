@@ -23,13 +23,13 @@
 
     <form action="rechnung" method="post">
       Die Rechnung wird
-      <input type="radio" name="bezahlart" value="bar">Bar</input>
+      <input type="radio" name="bezahlart" value="bar" required>Bar</input>
       /
       <input type="radio" name="bezahlart" value="digital">mit Karte</input>
       beglichen.<br><br>
 
       Die Kunden wollen
-      <input type="radio" name="zsmOderGetrennt" value="zusammen">zusammen</input>
+      <input type="radio" name="zsmOderGetrennt" value="zusammen" required>zusammen</input>
       /
       <input type="radio" name="zsmOderGetrennt" value="getrennt">getrennt</input>
       bezahlen.<br><br>
