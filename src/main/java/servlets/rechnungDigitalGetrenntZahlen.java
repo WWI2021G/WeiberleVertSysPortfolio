@@ -64,3 +64,29 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("</body>");
     out.println("</html>");
   }
+
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    HttpSession session = req.getSession(true);
+    FormBean orderBean = (FormBean) session.getAttribute("form");
+    session = req.getSession(true);
+    resp.setContentType("text/html");
+    PrintWriter out = resp.getWriter();
+    Enumeration<String> attributeNames = session.getAttributeNames();
+    while ( attributeNames.hasMoreElements() ) {
+      String attributeName = attributeNames.nextElement();
+      Object attributeValue = session.getAttribute(attributeName);
+      out.println("Session attribute name: " + attributeName);
+      out.println("Session attribute value: " + attributeValue);
+      if ( !attributeName.equals("form") ) {
+        util.payOne(out, orderBean, util.products[Integer.parseInt(attributeName)], (int) attributeValue);
+        session.removeAttribute(attributeName);
+      }
+    }
+    if ( orderBean.isOrderOpen() ) {
+      resp.sendRedirect(req.getContextPath() + "/rechnung/digital/getrennt");
+    } else {
+      resp.sendRedirect(req.getContextPath() + "/index.jsp");
+    }
+  }
+}
