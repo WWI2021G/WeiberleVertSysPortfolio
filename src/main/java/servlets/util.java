@@ -92,8 +92,6 @@ public class util {
   }
 
   public static float getGesamtPreis(PrintWriter out, FormBean orderBean) {
-    String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
-    double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
     gesamtPreis = 0;
     for (int i = 0; i < products.length; i++) {
       String getterCall = "getAnzahl" + products[i];
