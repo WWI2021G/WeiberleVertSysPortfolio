@@ -8,11 +8,12 @@ import beans.FormBean;
 
 public class util {
   private static float gesamtPreis = 0;
+  private static float rabattAbsolut = 0;
   public static String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
   public static String[] productNames = {"Cola", "Fanta", "Sprite", "Wasser", "Apfelsaftschorle", "Schnitzel mit Pommes", "K&auml;sesp&auml;tzle", "Spaghetti Bolognese", "Chicken Nuggets", "Pommes"};
   public static double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
 
-  public static void displayOrder(PrintWriter out, FormBean orderBean) throws IOException {
+  public static void displayOrder(PrintWriter out, FormBean orderBean, int rabatt) throws IOException {
 
     out.println("<table>");
     out.println("<tr>");
@@ -21,11 +22,11 @@ public class util {
     out.println("<th>Preis</th>");
     out.println("</tr>");
     out.println("<tr>");
-    orderChecker(out, orderBean, false);
+    orderChecker(out, orderBean, rabatt, false);
     out.println("</table>");
   }
 
-  public static void splitOrder(PrintWriter out, FormBean orderBean) throws IOException {
+  public static void splitOrder(PrintWriter out, FormBean orderBean, int rabatt) throws IOException {
     out.println("<table>");
     out.println("<tr>");
     out.println("<th>Produkt</th>");
@@ -34,12 +35,13 @@ public class util {
     out.println("<th>Person zahlt</th>");
     out.println("</tr>");
     out.println("<tr>");
-    orderChecker(out, orderBean, true);
-    out.println("</table>");
+    orderChecker(out, orderBean, rabatt, true);
+    out.println("</table><br>");
   }
 
-  public static void orderChecker(PrintWriter out, FormBean orderBean, boolean split) throws IOException {
+  public static void orderChecker(PrintWriter out, FormBean orderBean, int rabatt, boolean split) throws IOException {
     gesamtPreis = 0;
+    rabattAbsolut = 0;
 
     for (int i = 0; i < products.length; i++) {
       String getterCall = "getAnzahl" + products[i];
@@ -62,7 +64,13 @@ public class util {
         e.printStackTrace();
       }
     }
-    // TODO: Rabatt
+    out.println("<tr>");
+    out.println("<td>Rabatt</td>");
+    rabattAbsolut = (gesamtPreis * rabatt / 100);
+    out.println("<td>" + rabatt + "&#37;</td>");
+    out.println("<td>" + rabattAbsolut + "&euro;</td>");
+    out.println("</tr>");
+    gesamtPreis = gesamtPreis - rabattAbsolut;
     out.println("<tr>");
     out.println("<td>Gesamt</td>");
     out.println("<td></td>");
@@ -84,7 +92,7 @@ public class util {
     }
   }
 
-  public static float getGesamtPreis(PrintWriter out, FormBean orderBean) {
+  public static float getGesamtPreis(PrintWriter out, FormBean orderBean, int rabatt) {
     gesamtPreis = 0;
     for (int i = 0; i < products.length; i++) {
       String getterCall = "getAnzahl" + products[i];
@@ -99,6 +107,7 @@ public class util {
       }
     }
     gesamtPreis = Float.parseFloat(String.format("%.2f", gesamtPreis));
+    gesamtPreis = gesamtPreis - (gesamtPreis * rabatt / 100);
     return gesamtPreis;
   }
 }
