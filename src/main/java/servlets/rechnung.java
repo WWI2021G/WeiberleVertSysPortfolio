@@ -18,17 +18,17 @@ public class rechnung extends HttpServlet {
 
     switch (combined) {
       case "digitalzusammen":
-      resp.sendRedirect(req.getContextPath() + "/rechnung/digital/zusammen");
-      break;
+        resp.sendRedirect(req.getContextPath() + "/rechnung/digital/zusammen");
+        break;
       case "digitalgetrennt":
-      resp.sendRedirect(req.getContextPath() + "/rechnung/digital/getrennt");
-      break;
+        resp.sendRedirect(req.getContextPath() + "/rechnung/digital/getrennt");
+        break;
       case "barzusammen":
-      resp.sendRedirect(req.getContextPath() + "/rechnung/bar/zusammen");
-      break;
+        resp.sendRedirect(req.getContextPath() + "/rechnung/bar/zusammen");
+        break;
       case "bargetrennt":
-      resp.sendRedirect(req.getContextPath() + "/rechnung/bar/getrennt");
-      break;
+        resp.sendRedirect(req.getContextPath() + "/rechnung/bar/getrennt");
+        break;
     }
   }
 }

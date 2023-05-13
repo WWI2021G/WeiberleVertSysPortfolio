@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import beans.FormBean;
 
-@WebServlet("/rechnung/digital/getrennt/zahlen")
-public class rechnungDigitalGetrenntZahlen extends HttpServlet {
+@WebServlet("/rechnung/bar/getrennt/zahlen")
+public class rechnungBarGetrenntZahlen extends HttpServlet {
   HttpSession session;
+  double gesamtPreis;
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +36,7 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("</tr>");
     out.println("<tr>");
     Enumeration<String> paramNames = req.getParameterNames();
-    double gesamtPreis = 0;
+    gesamtPreis = 0;
     while ( paramNames.hasMoreElements() ) {
       String paramName = paramNames.nextElement();
       String[] paramValues = req.getParameterValues(paramName);
@@ -48,6 +49,7 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
           out.println("<td>" + String.format("%.2f", paramValue * util.prices[Integer.parseInt(paramName)]) + "&euro;</td>");
         }
         gesamtPreis += paramValue * util.prices[Integer.parseInt(paramName)];
+        session.setAttribute("gesamtPreis", gesamtPreis);
       }
       out.println("</tr>");
     }
@@ -58,34 +60,13 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("</tr>");
     out.println("</table>");
     out.println("<br>");
-    out.println("<form action=\"" + req.getContextPath() + "/rechnung/digital/getrennt/zahlen\" method=\"GET\">");
+    out.println("<h3>Der gegebene Betrag lautet:</h3>");
+    out.println("<form action=\"" + req.getContextPath() + "/rechnung/bar/getrennt/bezahlt\" method=\"POST\">");
+    out.println("<input type=\"number\" name=\"gegebenesGeld\" min=\"" + gesamtPreis + "\" step=\"0.01\" required=\"required\">");
     out.println("<button type=\"submit\">Betrag bezahlt</button>");
     out.println("<a href=\"" + req.getContextPath() + "/rechnung/digital/getrennt\"><button type=\"button\">Abbrechen</button></a>");
     out.println("</form>");
     out.println("</body>");
     out.println("</html>");
-  }
-
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    HttpSession session = req.getSession(true);
-    FormBean orderBean = (FormBean) session.getAttribute("form");
-    session = req.getSession(true);
-    resp.setContentType("text/html");
-    PrintWriter out = resp.getWriter();
-    Enumeration<String> attributeNames = session.getAttributeNames();
-    while ( attributeNames.hasMoreElements() ) {
-      String attributeName = attributeNames.nextElement();
-      Object attributeValue = session.getAttribute(attributeName);
-      if ( !attributeName.equals("form") && !attributeName.equals("gesamtPreis") && !attributeName.equals("rabatt") ) {
-        util.payOne(out, orderBean, util.products[Integer.parseInt(attributeName)], (int) attributeValue);
-        session.removeAttribute(attributeName);
-      }
-    }
-    if ( orderBean.isOrderOpen() ) {
-      resp.sendRedirect(req.getContextPath() + "/rechnung/digital/getrennt");
-    } else {
-      resp.sendRedirect(req.getContextPath() + "/index.jsp");
-    }
   }
 }

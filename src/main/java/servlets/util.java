@@ -22,12 +22,6 @@ public class util {
     out.println("</tr>");
     out.println("<tr>");
     orderChecker(out, orderBean, false);
-
-    // TODO: Implement Rabatt
-    out.println("<tr>");
-    out.println("<td>Gesamt</td>");
-    out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</table>");
   }
 
@@ -41,12 +35,6 @@ public class util {
     out.println("</tr>");
     out.println("<tr>");
     orderChecker(out, orderBean, true);
-
-    // TODO: Implement Rabatt
-    out.println("<tr>");
-    out.println("<td>Gesamt</td>");
-    out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</table>");
   }
 
@@ -74,6 +62,11 @@ public class util {
         e.printStackTrace();
       }
     }
+    // TODO: Rabatt
+    out.println("<tr>");
+    out.println("<td>Gesamt</td>");
+    out.println("<td></td>");
+    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
   }
 
   public static void payOne(PrintWriter out, FormBean orderBean, String product, int amount) {
@@ -92,8 +85,6 @@ public class util {
   }
 
   public static float getGesamtPreis(PrintWriter out, FormBean orderBean) {
-    String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
-    double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
     gesamtPreis = 0;
     for (int i = 0; i < products.length; i++) {
       String getterCall = "getAnzahl" + products[i];
