@@ -11,8 +11,8 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Gemeinsam bezahlte Rechnung mit Karte
 - [x] Gemeinsam bezahlte Rechnung bar
 - [x] Getrennt bezahlte Rechnung mit Karte
-- [ ] Getrennt bezahlte Rechnung bar
+- [x] Getrennt bezahlte Rechnung bar
 - [ ] Rabattcodes
 - [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
-- [ ] ...
+- [ ] Code clean up
 - [ ] Dokumentation LaTeX
