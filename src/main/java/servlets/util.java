@@ -22,12 +22,6 @@ public class util {
     out.println("</tr>");
     out.println("<tr>");
     orderChecker(out, orderBean, false);
-
-    // TODO: Implement Rabatt
-    out.println("<tr>");
-    out.println("<td>Gesamt</td>");
-    out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</table>");
   }
 
@@ -41,12 +35,6 @@ public class util {
     out.println("</tr>");
     out.println("<tr>");
     orderChecker(out, orderBean, true);
-
-    // TODO: Implement Rabatt
-    out.println("<tr>");
-    out.println("<td>Gesamt</td>");
-    out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</table>");
   }
 
@@ -74,6 +62,11 @@ public class util {
         e.printStackTrace();
       }
     }
+    // TODO: Rabatt
+    out.println("<tr>");
+    out.println("<td>Gesamt</td>");
+    out.println("<td></td>");
+    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
   }
 
   public static void payOne(PrintWriter out, FormBean orderBean, String product, int amount) {
