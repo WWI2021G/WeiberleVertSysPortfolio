@@ -77,9 +77,7 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     while ( attributeNames.hasMoreElements() ) {
       String attributeName = attributeNames.nextElement();
       Object attributeValue = session.getAttribute(attributeName);
-      out.println("Session attribute name: " + attributeName);
-      out.println("Session attribute value: " + attributeValue);
-      if ( !attributeName.equals("form") ) {
+      if ( !attributeName.equals("form") && !attributeName.equals("gesamtPreis") && !attributeName.equals("rabatt") ) {
         util.payOne(out, orderBean, util.products[Integer.parseInt(attributeName)], (int) attributeValue);
         session.removeAttribute(attributeName);
       }
