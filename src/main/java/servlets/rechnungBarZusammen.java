@@ -17,16 +17,22 @@ public class rechnungBarZusammen extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession(true);
     FormBean orderBean = (FormBean) session.getAttribute("form");
+    int rabatt = (int) session.getAttribute("rabatt");
     resp.setContentType("text/html");
     PrintWriter out = resp.getWriter();
     out.println("<html>");
     out.println("<head>");
     out.println("<title>Rechnungsservlet</title>");
+    out.println("<style>");
+    out.println("table, th, td {");
+    out.println("border: 1px solid black;");
+    out.println("border-collapse: collapse;");
+    out.println("}");
+    out.println("</style>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>Offen stehende Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + ":</h1>");
-    util.displayOrder(out, orderBean);
-    out.println("<br>");
+    util.displayOrder(out, orderBean, rabatt);
     out.println("<form action=\"" + req.getContextPath() + "/rechnung/bar/zusammen\" method=\"POST\">");
     out.println("<h3>Der gegebene Betrag lautet:</h3>");
     out.println("<input type=\"number\" name=\"gegebenesGeld\" min=\"" + util.getGesamtPreis(out, orderBean) + "\" step=\"0.01\" required=\"required\">");

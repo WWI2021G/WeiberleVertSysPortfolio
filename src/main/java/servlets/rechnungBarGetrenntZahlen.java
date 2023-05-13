@@ -20,11 +20,19 @@ public class rechnungBarGetrenntZahlen extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     session = req.getSession(true);
     FormBean orderBean = (FormBean) session.getAttribute("form");
+    int rabatt = (int) session.getAttribute("rabatt");
+    double rabattAbsolut = 0;
     resp.setContentType("text/html");
     PrintWriter out = resp.getWriter();
     out.println("<html>");
     out.println("<head>");
     out.println("<title>Rechnungsservlet</title>");
+    out.println("<style>");
+    out.println("table, th, td {");
+    out.println("border: 1px solid black;");
+    out.println("border-collapse: collapse;");
+    out.println("}");
+    out.println("</style>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>Zu bezahlende Rechnung f&uuml;r Person von Tisch " + orderBean.getTischNr() + ":</h1>");
@@ -49,10 +57,17 @@ public class rechnungBarGetrenntZahlen extends HttpServlet {
           out.println("<td>" + String.format("%.2f", paramValue * util.prices[Integer.parseInt(paramName)]) + "&euro;</td>");
         }
         gesamtPreis += paramValue * util.prices[Integer.parseInt(paramName)];
-        session.setAttribute("gesamtPreis", gesamtPreis);
       }
       out.println("</tr>");
     }
+    out.println("<tr>");
+    out.println("<td>Rabatt</td>");
+    rabattAbsolut = (gesamtPreis * rabatt / 100);
+    gesamtPreis = gesamtPreis - rabattAbsolut;
+    session.setAttribute("gesamtPreis", gesamtPreis);
+    out.println("<td>" + rabatt + "&#37;</td>");
+    out.println("<td>" + rabattAbsolut + "&euro;</td>");
+    out.println("</tr>");
     out.println("<tr>");
     out.println("<td>Gesamt</td>");
     out.println("<td></td>");
