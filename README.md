@@ -13,7 +13,8 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Getrennt bezahlte Rechnung mit Karte
 - [x] Getrennt bezahlte Rechnung bar
 - [x] Rabattcodes
-- [ ] Tabellen formattieren
-- [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
+- [x] Tabellen formattieren
 - [ ] Code clean up
+- [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
+- [ ] Evtl. Funktionsweise nochmal ein bisschen überarbeiten
 - [ ] Dokumentation LaTeX

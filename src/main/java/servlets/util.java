@@ -17,9 +17,9 @@ public class util {
 
     out.println("<table>");
     out.println("<tr>");
-    out.println("<th>Produkt</th>");
-    out.println("<th>Menge</th>");
-    out.println("<th>Preis</th>");
+    out.println("<th style=\"width: 220px\">Produkt</th>");
+    out.println("<th style=\"width: 80px\">Menge</th>");
+    out.println("<th style=\"width: 80px\">Preis</th>");
     out.println("</tr>");
     out.println("<tr>");
     orderChecker(out, orderBean, rabatt, false);
@@ -29,9 +29,9 @@ public class util {
   public static void splitOrder(PrintWriter out, FormBean orderBean, int rabatt) throws IOException {
     out.println("<table>");
     out.println("<tr>");
-    out.println("<th>Produkt</th>");
-    out.println("<th>Menge</th>");
-    out.println("<th>Preis</th>");
+    out.println("<th style=\"width: 220px\">Produkt</th>");
+    out.println("<th style=\"width: 80px\">Menge</th>");
+    out.println("<th style=\"width: 80px\">Preis</th>");
     out.println("<th>Person zahlt</th>");
     out.println("</tr>");
     out.println("<tr>");
@@ -51,8 +51,8 @@ public class util {
         int anzahl = (int) getter.invoke(orderBean);
         if ( anzahl != 0 ) {
           out.println("<td>" + productNames[i] + "</td>");
-          out.println("<td>" + anzahl + "</td>");
-          out.println("<td>" + String.format("%.2f", anzahl * prices[i]) + "&euro;</td>");
+          out.println("<td style=\"text-align: center;\">" + anzahl + "</td>");
+          out.println("<td style=\"text-align: right;\">" + String.format("%.2f", anzahl * prices[i]) + "&euro;</td>");
           if ( split ) {
             out.println("<td><input type=\"number\" name=\"" + i + "\" min=\"0\" max=\"" + anzahl + "\" value=\"0\"></td>");
           }
@@ -67,14 +67,14 @@ public class util {
     out.println("<tr>");
     out.println("<td>Rabatt</td>");
     rabattAbsolut = (gesamtPreis * rabatt / 100);
-    out.println("<td>" + rabatt + "&#37;</td>");
-    out.println("<td>" + rabattAbsolut + "&euro;</td>");
+    out.println("<td style=\"text-align: center;\">" + rabatt + "&#37;</td>");
+    out.println("<td style=\"text-align: right; color: green;\">" + String.format("%.2f", rabattAbsolut) + "&euro;</td>");
     out.println("</tr>");
     gesamtPreis = gesamtPreis - rabattAbsolut;
     out.println("<tr>");
     out.println("<td>Gesamt</td>");
     out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
+    out.println("<td style=\"text-align:right; color: red;\">" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
   }
 
   public static void payOne(PrintWriter out, FormBean orderBean, String product, int amount) {

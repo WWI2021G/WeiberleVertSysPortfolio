@@ -37,9 +37,9 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("<h1>Zu bezahlende Rechnung f&uuml;r Person von Tisch " + orderBean.getTischNr() + ":</h1>");
     out.println("<table>");
     out.println("<tr>");
-    out.println("<th>Produkt</th>");
-    out.println("<th>Menge</th>");
-    out.println("<th>Preis</th>");
+    out.println("<th style=\"width: 220px\">Produkt</th>");
+    out.println("<th style=\"width: 80px\">Menge</th>");
+    out.println("<th style=\"width: 80px\">Preis</th>");
     out.println("</tr>");
     out.println("<tr>");
     Enumeration<String> paramNames = req.getParameterNames();
@@ -52,8 +52,8 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
         if ( paramValue != 0 ) {
           out.println("<td>" + util.productNames[Integer.parseInt(paramName)] + "</td>");
           session.setAttribute(paramName, paramValue);
-          out.println("<td>" + paramValue + "</td>");
-          out.println("<td>" + String.format("%.2f", paramValue * util.prices[Integer.parseInt(paramName)]) + "&euro;</td>");
+          out.println("<td style=\"text-align: center;\">" + paramValue + "</td>");
+          out.println("<td style=\"text-align: right;\">" + String.format("%.2f", paramValue * util.prices[Integer.parseInt(paramName)]) + "&euro;</td>");
         }
         gesamtPreis += paramValue * util.prices[Integer.parseInt(paramName)];
       }
@@ -63,13 +63,13 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
     out.println("<td>Rabatt</td>");
     rabattAbsolut = (gesamtPreis * rabatt / 100);
     gesamtPreis = gesamtPreis - rabattAbsolut;
-    out.println("<td>" + rabatt + "&#37;</td>");
-    out.println("<td>" + rabattAbsolut + "&euro;</td>");
+    out.println("<td style=\"text-align: center;\">" + rabatt + "&#37;</td>");
+    out.println("<td style=\"text-align: right; color: green;\">" + String.format("%.2f", rabattAbsolut) + "&euro;</td>");
     out.println("</tr>");
     out.println("<tr>");
     out.println("<td>Gesamt</td>");
     out.println("<td></td>");
-    out.println("<td>" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
+    out.println("<td style=\"text-align:right; color: red;\">" + String.format("%.2f", gesamtPreis) + "&euro;</td>");
     out.println("</tr>");
     out.println("</table>");
     out.println("<br>");
