@@ -21,7 +21,9 @@
 
 <body>
 
-  <h1>Bestellung f&uuml;r Tisch <jsp:getProperty name='form' property='tischNr' />:</h1>
+  <h1>Bestellung f&uuml;r Tisch
+    <jsp:getProperty name='form' property='tischNr' />:
+  </h1>
 
   <form action="UmleitungBestellung.jsp">
     <h2>Getr&auml;nke ausw&auml;hlen</h2>
