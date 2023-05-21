@@ -2,6 +2,9 @@ package beans;
 
 public class FormBean {
   private int tischNr;
+  private static final String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
+  private static final String[] productNames = {"Cola", "Fanta", "Sprite", "Wasser", "Apfelsaftschorle", "Schnitzel mit Pommes", "K&auml;sesp&auml;tzle", "Spaghetti Bolognese", "Chicken Nuggets", "Pommes"};
+  private static final double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
 
   int[][] tische = new int[5][10];
 
@@ -91,6 +94,18 @@ public class FormBean {
 
   public void setAnzahlPommes(int anzahlPommes) {
     tische[tischNr - 1][9] = anzahlPommes;
+  }
+
+  public static String[] getProducts() {
+    return products;
+  }
+  
+  public static String[] getProductNames() {
+    return productNames;
+  }
+
+  public static double[] getPrices() {
+    return prices;
   }
 
   public boolean isOrderOpen() {
