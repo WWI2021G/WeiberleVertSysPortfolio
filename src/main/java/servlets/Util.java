@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import beans.FormBean;
 
-public class util {
+public class Util {
   private static float gesamtPreis = 0;
   private static float rabattAbsolut = 0;
   private static String[] products = FormBean.getProducts();
