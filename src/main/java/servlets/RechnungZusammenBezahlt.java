@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import beans.FormBean;
 
-@WebServlet("/rechnung/bar/zusammen/bezahlt")
-public class rechnungBarZusammenBezahlt extends HttpServlet {
+@WebServlet("/rechnung/zusammen/bezahlt")
+public class RechnungZusammenBezahlt extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

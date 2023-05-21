@@ -14,7 +14,8 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Getrennt bezahlte Rechnung bar
 - [x] Rabattcodes
 - [x] Tabellen formattieren
-- [ ] Funktionsweise nochmal ein bisschen überarbeiten
-- [ ] Code clean up
+- [x] Funktionsweise nochmal ein bisschen überarbeiten
 - [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
+- [ ] Code clean up - vor allem Umleitung.jsp
+- [ ] Kommentieren
 - [ ] Dokumentation LaTeX - Doc branch
