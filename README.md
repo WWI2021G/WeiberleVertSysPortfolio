@@ -15,7 +15,7 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Rabattcodes
 - [x] Tabellen formattieren
 - [x] Funktionsweise nochmal ein bisschen überarbeiten
+- [x] Code clean up
 - [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
-- [ ] Code clean up - vor allem Umleitung.jsp
-- [ ] Kommentieren
+- [ ] Kommentieren und gleichzeitig code anschauen und sexy machen
 - [ ] Dokumentation LaTeX - Doc branch

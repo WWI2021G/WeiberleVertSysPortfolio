@@ -34,7 +34,7 @@
       <button type="submit">Best&auml;tigen</button>
     </form>
 
-    <% } else { %>
+  <% } else { %>
 
       <h3>F&uuml;r Tisch
         <jsp:getProperty name='form' property='tischNr' /> gibt es noch keine Rechnung, bitte kehren Sie zur Startseite
@@ -42,7 +42,7 @@
       </h3>
       <a href="index.jsp"><button>Zur&uuml;ck zur Startseite</button></a>
 
-      <% } %>
+  <% } %>
 
 </body>
 
