@@ -22,12 +22,6 @@
     <h2>Folgende Informationen werden f&uuml;r die Rechnungsstellung ben&ouml;tigt:</h2>
 
     <form action="rechnung" method="post">
-      Die Rechnung wird
-      <input type="radio" name="bezahlart" value="bar" required>Bar</input>
-      /
-      <input type="radio" name="bezahlart" value="digital">mit Karte</input>
-      beglichen.<br><br>
-
       Die Kunden wollen
       <input type="radio" name="zsmOderGetrennt" value="zusammen" required>zusammen</input>
       /
