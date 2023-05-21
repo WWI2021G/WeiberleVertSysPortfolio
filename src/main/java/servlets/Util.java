@@ -106,8 +106,8 @@ public class Util {
         e.printStackTrace();
       }
     }
-    gesamtPreis = Float.parseFloat(String.format("%.2f", gesamtPreis));
     gesamtPreis = gesamtPreis - (gesamtPreis * rabatt / 100);
+    gesamtPreis = Float.parseFloat(String.format("%.2f", gesamtPreis));
     return gesamtPreis;
   }
 }
