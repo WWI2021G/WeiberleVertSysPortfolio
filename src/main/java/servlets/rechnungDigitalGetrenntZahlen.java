@@ -14,6 +14,9 @@ import beans.FormBean;
 @WebServlet("/rechnung/digital/getrennt/zahlen")
 public class rechnungDigitalGetrenntZahlen extends HttpServlet {
   HttpSession session;
+  private String[] products = FormBean.getProducts();
+  private String[] productNames = FormBean.getProductNames();
+  private double[] prices = FormBean.getPrices();
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,12 +53,12 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
       for (int i = 0; i < paramValues.length; i++) {
         int paramValue = Integer.parseInt(paramValues[i]);
         if ( paramValue != 0 ) {
-          out.println("<td>" + util.productNames[Integer.parseInt(paramName)] + "</td>");
+          out.println("<td>" + productNames[Integer.parseInt(paramName)] + "</td>");
           session.setAttribute(paramName, paramValue);
           out.println("<td style=\"text-align: center;\">" + paramValue + "</td>");
-          out.println("<td style=\"text-align: right;\">" + String.format("%.2f", paramValue * util.prices[Integer.parseInt(paramName)]) + "&euro;</td>");
+          out.println("<td style=\"text-align: right;\">" + String.format("%.2f", paramValue * prices[Integer.parseInt(paramName)]) + "&euro;</td>");
         }
-        gesamtPreis += paramValue * util.prices[Integer.parseInt(paramName)];
+        gesamtPreis += paramValue * prices[Integer.parseInt(paramName)];
       }
       out.println("</tr>");
     }
@@ -93,7 +96,7 @@ public class rechnungDigitalGetrenntZahlen extends HttpServlet {
       String attributeName = attributeNames.nextElement();
       Object attributeValue = session.getAttribute(attributeName);
       if ( !attributeName.equals("form") && !attributeName.equals("gesamtPreis") && !attributeName.equals("rabatt") ) {
-        util.payOne(out, orderBean, util.products[Integer.parseInt(attributeName)], (int) attributeValue);
+        util.payOne(out, orderBean, products[Integer.parseInt(attributeName)], (int) attributeValue);
         session.removeAttribute(attributeName);
       }
     }

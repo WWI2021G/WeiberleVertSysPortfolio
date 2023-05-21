@@ -9,9 +9,9 @@ import beans.FormBean;
 public class util {
   private static float gesamtPreis = 0;
   private static float rabattAbsolut = 0;
-  public static String[] products = {"Cola", "Fanta", "Sprite", "Wasser", "Apfel", "Schnitzel", "Kaesespaetzle", "Spaghetti", "Chicken", "Pommes"};
-  public static String[] productNames = {"Cola", "Fanta", "Sprite", "Wasser", "Apfelsaftschorle", "Schnitzel mit Pommes", "K&auml;sesp&auml;tzle", "Spaghetti Bolognese", "Chicken Nuggets", "Pommes"};
-  public static double[] prices = {3.9, 3.8, 3.5, 1.8, 2.7, 18.7, 16.4, 17.5, 12.3, 8.7};
+  private static String[] products = FormBean.getProducts();
+  private static String[] productNames = FormBean.getProductNames();
+  private static double[] prices = FormBean.getPrices();
 
   public static void displayOrder(PrintWriter out, FormBean orderBean, int rabatt) throws IOException {
 
