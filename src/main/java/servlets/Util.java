@@ -10,8 +10,8 @@ import beans.FormBean;
 // finden.
 public class Util {
   // Deklaration verschiedener Variablen, die in verschiedenen Methoden benötigt werden.
-  private static float gesamtPreis = 0;
-  private static float rabattAbsolut = 0;
+  private static double gesamtPreis = 0;
+  private static double rabattAbsolut = 0;
   private static String[] products = FormBean.getProducts();
   private static String[] productNames = FormBean.getProductNames();
   private static double[] prices = FormBean.getPrices();
@@ -126,7 +126,7 @@ public class Util {
   // Diese Methode wird verwendet, um den Gesamtpreis der Bestellung zu errechnen.
   // Sie bezieht den Rabatt direkt mit ein und formattiert das Ergebnis passend für Preise.
   // Auch in dieser Methode werden Java Reflections verwendet.
-  public static float getGesamtPreis(PrintWriter out, FormBean orderBean, int rabatt) {
+  public static double getGesamtPreis(PrintWriter out, FormBean orderBean, int rabatt) {
     gesamtPreis = 0;
     for (int i = 0; i < products.length; i++) {
       String getterCall = "getAnzahl" + products[i];
@@ -143,7 +143,7 @@ public class Util {
     // Hier wird der Rabatt mit eingerechnet.
     gesamtPreis = gesamtPreis - (gesamtPreis * rabatt / 100);
     // Hier wird das Ergebnis formattiert.
-    gesamtPreis = Float.parseFloat(String.format("%.2f", gesamtPreis));
+    gesamtPreis = Double.parseDouble(String.format("%.2f", gesamtPreis));
     return gesamtPreis;
   }
 }

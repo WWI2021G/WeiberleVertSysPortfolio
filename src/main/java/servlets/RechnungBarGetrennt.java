@@ -29,8 +29,8 @@ public class RechnungBarGetrennt extends HttpServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>Die Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + " wurde beglichen:</h1>");
-    out.println("<h2>Bei einer Rechnung von " + String.format("%.2f", gesamtPreis) + "&euro; wurden " + String.format("%.2f", Float.parseFloat(req.getParameter("gegebenesGeld"))) + "&euro; gezahlt.</h2>");
-    out.println("<h2>Das ergibt ein R&uuml;ckgeld von " + String.format("%.2f", (Float.parseFloat(req.getParameter("gegebenesGeld")) - gesamtPreis)) + "&euro;</h2>");
+    out.println("<h2>Bei einer Rechnung von " + String.format("%.2f", gesamtPreis) + "&euro; wurden " + String.format("%.2f", Double.parseDouble(req.getParameter("gegebenesGeld"))) + "&euro; gezahlt.</h2>");
+    out.println("<h2>Das ergibt ein R&uuml;ckgeld von " + String.format("%.2f", (Double.parseDouble(req.getParameter("gegebenesGeld")) - gesamtPreis)) + "&euro;</h2>");
     out.println("<form action=\"" + req.getContextPath() + "/rechnung/getrennt/bezahlt\" method=\"POST\">");
     out.println("<button type=\"submit\">R&uuml;ckgeld gegeben</button>");
     // Mit diesem Button kann der Zahlvorgang abgebrochen werden.
