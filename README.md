@@ -16,6 +16,6 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Tabellen formattieren
 - [x] Funktionsweise nochmal ein bisschen überarbeiten
 - [x] Code clean up
-- [ ] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
+- [x] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
 - [ ] Kommentieren und gleichzeitig code anschauen und sexy machen
 - [ ] Dokumentation LaTeX - Doc branch
