@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+// Dieses Servlet wird verwendet, um den Benutzer an die richtige Stelle umzuleiten und, um den Rabatt zwischenzuspeichern
 @WebServlet("/rechnung")
 public class Rechnung extends HttpServlet {
 
@@ -17,6 +18,7 @@ public class Rechnung extends HttpServlet {
     String zsmOderGetrennt = req.getParameter("zsmOderGetrennt");
     String rabatt = req.getParameter("rabatt");
 
+    // Hier wird der Rabatt als Sessionvariable festgelegt und kann so in den restlichen Servlets gelesen werden.
     if ( rabatt.equals("Rabatt1") ) {
       session.setAttribute("rabatt", 10);
     } else if ( rabatt.equals("Rabatt2") ) {
@@ -27,6 +29,7 @@ public class Rechnung extends HttpServlet {
       session.setAttribute("rabatt", 0);
     }
 
+    // Hier findet das Routing statt, je nach dem, ob zusammen oder getrennt bezahlt wird.
     switch (zsmOderGetrennt) {
       case "zusammen":
         resp.sendRedirect(req.getContextPath() + "/rechnung/zusammen");
