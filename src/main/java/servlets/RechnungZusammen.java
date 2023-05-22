@@ -73,8 +73,8 @@ public class RechnungZusammen extends HttpServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>Die Rechnung f&uuml;r Tisch " + orderBean.getTischNr() + " wurde beglichen:</h1>");
-    out.println("<h2>Bei einer Rechnung von " + String.format("%.2f", Util.getGesamtPreis(out, orderBean, rabatt)) + "&euro; wurden " + String.format("%.2f", Float.parseFloat(req.getParameter("gegebenesGeld"))) + "&euro; gezahlt.</h2>");
-    out.println("<h2>Das ergibt ein R&uuml;ckgeld von " + String.format("%.2f", (Float.parseFloat(req.getParameter("gegebenesGeld")) - Util.getGesamtPreis(out, orderBean, rabatt))) + "&euro;</h2>");
+    out.println("<h2>Bei einer Rechnung von " + String.format("%.2f", Util.getGesamtPreis(out, orderBean, rabatt)) + "&euro; wurden " + String.format("%.2f", Double.parseDouble(req.getParameter("gegebenesGeld"))) + "&euro; gezahlt.</h2>");
+    out.println("<h2>Das ergibt ein R&uuml;ckgeld von " + String.format("%.2f", (Double.parseDouble(req.getParameter("gegebenesGeld")) - Util.getGesamtPreis(out, orderBean, rabatt))) + "&euro;</h2>");
     out.println("<form action=\"" + req.getContextPath() + "/rechnung/zusammen/bezahlt\" method=\"POST\">");
     out.println("<button type=\"submit\">R&uuml;ckgeld gegeben</button>");
     out.println("<a href=\"" + req.getContextPath() + "/rechnung/zusammen\"><button type=\"button\">Abbrechen</button></a>");
