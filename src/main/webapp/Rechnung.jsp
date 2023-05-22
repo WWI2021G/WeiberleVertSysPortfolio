@@ -1,3 +1,4 @@
+<%-- Hier wird wieder die Tischnummer verwendet, um zu wissen auf welche Daten zugegriffen werden soll --%>
 <jsp:useBean class="beans.FormBean" id="form" scope="session" />
 <jsp:setProperty name="form" property="tischNr" />
 
@@ -8,7 +9,6 @@
   <title>Bestellung 3000</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,6 +17,8 @@
     <jsp:getProperty name='form' property='tischNr' />:
   </h1>
 
+  <%-- Prüft, ob für die angegebene Tischnummer eine Bestellung gemacht wurde --%>
+  <%-- Wenn ja kann mit Radiobuttons festgelegt werden, ob die Kunden getrennt oder zusammen bezahlen wollen und, ob sie einen Rabattcode haben --%>
   <% if (form.isOrderOpen()) { %>
 
     <h2>Folgende Informationen werden f&uuml;r die Rechnungsstellung ben&ouml;tigt:</h2>
@@ -34,6 +36,7 @@
       <button type="submit">Best&auml;tigen</button>
     </form>
 
+  <%-- Wenn für die angegebene Tischnummer noch keine Bestellung aufgegeben wurde gibt die Seite eine Fehlermeldung zurück und fordert auf auf die Startseite zurückzukehren --%>
   <% } else { %>
 
       <h3>F&uuml;r Tisch
