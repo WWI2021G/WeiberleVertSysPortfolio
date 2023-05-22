@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+// Dieses Servlet wird verwendet, um den Benutzer an die richtige Stelle umzuleiten und, um den Rabatt zwischenzuspeichern
 @WebServlet("/rechnung")
-public class rechnung extends HttpServlet {
+public class Rechnung extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession(true);
-    String bezahlart = req.getParameter("bezahlart");
     String zsmOderGetrennt = req.getParameter("zsmOderGetrennt");
-    String combined = bezahlart + zsmOderGetrennt;
     String rabatt = req.getParameter("rabatt");
 
+    // Hier wird der Rabatt als Sessionvariable festgelegt und kann so in den restlichen Servlets gelesen werden.
     if ( rabatt.equals("Rabatt1") ) {
       session.setAttribute("rabatt", 10);
     } else if ( rabatt.equals("Rabatt2") ) {
@@ -29,18 +29,13 @@ public class rechnung extends HttpServlet {
       session.setAttribute("rabatt", 0);
     }
 
-    switch (combined) {
-      case "digitalzusammen":
-        resp.sendRedirect(req.getContextPath() + "/rechnung/digital/zusammen");
+    // Hier findet das Routing statt, je nach dem, ob zusammen oder getrennt bezahlt wird.
+    switch (zsmOderGetrennt) {
+      case "zusammen":
+        resp.sendRedirect(req.getContextPath() + "/rechnung/zusammen");
         break;
-      case "digitalgetrennt":
-        resp.sendRedirect(req.getContextPath() + "/rechnung/digital/getrennt");
-        break;
-      case "barzusammen":
-        resp.sendRedirect(req.getContextPath() + "/rechnung/bar/zusammen");
-        break;
-      case "bargetrennt":
-        resp.sendRedirect(req.getContextPath() + "/rechnung/bar/getrennt");
+      case "getrennt":
+        resp.sendRedirect(req.getContextPath() + "/rechnung/getrennt");
         break;
     }
   }

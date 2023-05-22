@@ -1,5 +1,7 @@
 <jsp:useBean class="beans.FormBean" id="form" scope="session" />
 <jsp:setProperty name="form" property="*" />
+<%-- Diese jsp existiert, um die auf der Bestellung.jsp-Seite eingegebenen Daten zu speichern --%>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -7,82 +9,9 @@
   <title>In Bearbeitung</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%-- Nach dem die Seite fertig geladen hat, also alle Daten gespeichert wurden wird man zurück auf die index.jsp umgeleitet --%>
+  <%-- Je nach Geschwindigkeit des Servers ist diese Seite überhaupt nicht sichtbar --%>
   <meta http-equiv="refresh" content="0.1; URL=index.jsp" />
-  <link href="css/style.css" rel="stylesheet">
 </head>
-
-<body>
-  <h1>Bestellungs &Uuml;bersicht:</h1>
-  <h2>Die Bestellung wurde f&uuml;r Tisch
-    <jsp:getProperty name="form" property="tischNr" /> angelegt
-  </h2>
-  <table>
-    <tr>
-      <th>Getr&auml;nk/Gericht</th>
-      <th>Anzahl</th>
-    </tr>
-    <tr>
-      <td>Cola</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlCola" />
-      </td>
-    </tr>
-    <tr>
-      <td>Fanta</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlFanta" />
-      </td>
-    </tr>
-    <tr>
-      <td>Sprite</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlSprite" />
-      </td>
-    </tr>
-    <tr>
-      <td>Wasser</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlWasser" />
-      </td>
-    </tr>
-    <tr>
-      <td>Apfelsaftschorle</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlApfel" />
-      </td>
-    </tr>
-    <tr>
-      <td>Schnitzel</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlSchnitzel" />
-      </td>
-    </tr>
-    <tr>
-      <td>K&auml;sesp&auml;tzle</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlKaesespaetzle" />
-      </td>
-    </tr>
-    <tr>
-      <td>Spaghetti Bolognese</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlSpaghetti" />
-      </td>
-    </tr>
-    <tr>
-      <td>Chicken Nuggets</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlChicken" />
-      </td>
-    </tr>
-    <tr>
-      <td>Pommes</td>
-      <td>
-        <jsp:getProperty name="form" property="anzahlPommes" />
-      </td>
-    </tr>
-  </table>
-
-</body>
 
 </html>

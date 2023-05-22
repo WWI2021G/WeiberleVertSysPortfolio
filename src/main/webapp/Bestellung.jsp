@@ -1,3 +1,4 @@
+<%-- Hier wird erstmals die Bean verwendet, um die Daten der Bestellungen zu speichern. Hier wird zunächst nur die Tischnummer festgelegt, da von ihr abhängig alle restlichen Daten gespeichert werden --%>
 <jsp:useBean class="beans.FormBean" id="form" scope="session" />
 <jsp:setProperty name="form" property="tischNr" />
 
@@ -8,7 +9,7 @@
   <title>Bestellung 3000</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
+  <%-- Formattierung der Tabelle, die in diesem jsp verwendet wird, um die Anzahl der einzelnen Produkte eingeben zu können --%>
   <style>
     table,
     th,
@@ -21,8 +22,14 @@
 
 <body>
 
-  <h1>Bestellung f&uuml;r Tisch <jsp:getProperty name='form' property='tischNr' />:</h1>
+  <%-- Aktuelle Tischnummer wird oben nochmal dargestellt zur Übersicht und zum Überprüfen --%>
+  <h1>Bestellung f&uuml;r Tisch
+    <jsp:getProperty name='form' property='tischNr' />:
+  </h1>
 
+  <%-- Zwei Tabellen einmal für Getränke und einmal für Essen, um es übersichtlich zu halten --%>
+  <%-- Die erste Spalte beinhaltet die Anzahl. Wenn noch keine Bestellung aufgegeben wurde beginnen alle Werte mit 0, wenn bereits Produkte auf den Tisch gebucht sind sind die jeweiligen Werte der Anfangswert --%>
+  <%-- Der minimale Input ist immer 0, da hier immer absolute Werte angezeigt werden gibt es keinen Grund negative Werte zuzulassen. Um etwas nachzubestellen oder zu korrigieren müssen einfach nur die absoluten Werte angepasst werden --%>
   <form action="UmleitungBestellung.jsp">
     <h2>Getr&auml;nke ausw&auml;hlen</h2>
     <table>
@@ -101,6 +108,7 @@
         <td style="text-align: right;">8,70&euro;</td>
       </tr>
     </table><br>
+  <%-- Die aktualisierten Werte werden erst gespeichert, wenn der Bestellung absenden Knopf gedrückt wurde. Mit abbrechen werden alle Änderungen verworfen --%>
     <button type="submit">Bestellung absenden</button>
     <a href="index.jsp"><button type="button">Bestellung abbrechen</button></a>
 

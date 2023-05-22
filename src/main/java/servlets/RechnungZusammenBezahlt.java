@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import beans.FormBean;
 
-@WebServlet("/rechnung/bar/zusammen/bezahlt")
-public class rechnungBarZusammenBezahlt extends HttpServlet {
+// Dieses Servlet wird aufgerufen, wenn eine Rechnung zusammen bezahlt wurde.
+@WebServlet("/rechnung/zusammen/bezahlt")
+public class RechnungZusammenBezahlt extends HttpServlet {
 
+  // Diese Methode ruft die Methode payFull der FormBean-Klasse auf und setzt somit die Bestellung zurück.
+  // Danach wird der Benutzer an die Startseite zurückgeleitet.
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession(true);
