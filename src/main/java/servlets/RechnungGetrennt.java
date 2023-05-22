@@ -140,6 +140,7 @@ public class RechnungGetrennt extends HttpServlet {
     // RechnungBarGetrennt-Servlet weitergeleitet.
     out.println("<h3>Der gegebene Betrag lautet:</h3>");
     out.println("<form action=\"" + req.getContextPath() + "/rechnung/bar/getrennt\" method=\"POST\">");
+    gesamtPreis = Double.parseDouble(String.format("%.2f", gesamtPreis));
     out.println("<input type=\"number\" name=\"gegebenesGeld\" min=\"" + gesamtPreis + "\" step=\"0.01\" required=\"required\">");
     out.println("<button type=\"submit\">Betrag bezahlt</button>");
     out.println("<a href=\"" + req.getContextPath() + "/rechnung/getrennt\"><button type=\"button\">Abbrechen</button></a>");
