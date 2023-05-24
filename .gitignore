@@ -49,6 +49,7 @@ hs_err_pid*
 *.fdb_latexmk
 *.fls
 *.lof
+*.lol
 *.log
 *.lot
 *.out
