@@ -20,8 +20,6 @@
 \begin{spacing}{1}
   \clearpage
   \tableofcontents
-  \clearpage
-  \input{includes/abkuerzungen.tex}
 
   \clearpage
   \thispagestyle{kapitelkopfzeile}
@@ -30,9 +28,6 @@
   \addcontentsline{toc}{chapter}{Abbildungsverzeichnis} % Abb.verz. ins Inh.verz. aufnehmen
 
   \clearpage
-  \listoftables
-  \phantomsection
-  \addcontentsline{toc}{chapter}{Tabellenverzeichnis}   % Tab.verz. ins Inh.verz. aufnehmen
 \end{spacing}
 
 %%% Umstellung der Seiten-Nummerierung auf 1, 2, 3 ... %%%
@@ -43,8 +38,7 @@
 % Empfehlung: strukturieren Sie Ihren Text in einzelnen Dateien 
 % und binden Sie diese hier mit \input{includes/dateiname.tex} ein
 
-\input{includes/anforderungen.tex}
-\input{includes/seitenübersicht.tex}
+\input{includes/programmbeschreibung.tex}
 
 %%% Ende des eigentlichen Inhalts %%%
 
