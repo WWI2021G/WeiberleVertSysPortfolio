@@ -31,7 +31,7 @@
       bezahlen.<br><br>
 
       Die Kunden haben einen Rabattcode:
-      <input type="text" name="rabatt"><br><br>
+      <input type="text" name="rabatt" pattern="Rabatt1|Rabatt2|Rabatt3"><br><br>
 
       <button type="submit">Best&auml;tigen</button>
     </form>
