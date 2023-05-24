@@ -1,0 +1,49 @@
+%%% LaTeX-Vorlage Version 1.8 %%%
+
+% Grundlegende Dokumenteneigenschaften gemäß DHBW-Vorgaben
+\documentclass[a4paper,fontsize=11pt,oneside,parskip=half,headings=normal]{scrreprt} 
+% \usepackage{showframe} % nur für Kontrolle der Ränder 
+
+%%% Präambel einbinden (mit Festlegungen gemäß DHBW-Vorgaben) %%%
+\input{template/_dhbw_praeambel.tex}
+
+\begin{document}
+%%% Deckblatt einbinden %%% 
+% Anpassungen nötig (Name, Titel etc.)
+\input{includes/deckblatt.tex}
+
+%%% Umstellung der Seiten-Nummerierung auf i, ii, iii ... %%%
+\pagenumbering{Roman}
+
+%%% Inhalts-, Abbildungs-, Tabellenverzeichnisse %%%
+% sollen einzeilig gesetzt werden, um Platz zu sparen 
+\begin{spacing}{1}
+  \clearpage
+  \tableofcontents
+
+  \clearpage
+  \thispagestyle{kapitelkopfzeile}
+  \listoffigures
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Abbildungsverzeichnis} % Abb.verz. ins Inh.verz. aufnehmen
+
+  \clearpage
+\end{spacing}
+
+%%% Umstellung der Seiten-Nummerierung auf 1, 2, 3 ... %%%
+\cleardoublepage
+\pagenumbering{arabic}
+
+%%% Ihr eigentlicher Inhalt %%%
+% Empfehlung: strukturieren Sie Ihren Text in einzelnen Dateien 
+% und binden Sie diese hier mit \input{includes/dateiname.tex} ein
+
+\input{includes/programmbeschreibung.tex}
+
+%%% Ende des eigentlichen Inhalts %%%
+
+%%% Erklärung (keine Anpassungen nötig) %%%
+% steht ganz am Ende des Dokuments
+\cleardoublepage
+\input{template/_dhbw_erklaerung.tex}
+\end{document}

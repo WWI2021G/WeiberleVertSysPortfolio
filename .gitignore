@@ -39,3 +39,22 @@ hs_err_pid*
 .classpath
 .project
 .settings
+
+# LaTeX settings
+*.app
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lol
+*.log
+*.lot
+*.out
+*.pdf
+*.run.xml
+*.synctex.gz
+*.toc
+*.bak*
