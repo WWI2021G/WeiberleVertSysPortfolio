@@ -3,6 +3,13 @@
 
 Im Folgenden soll eine Programmbeschreibung für die Portfolioaufgabe von Verteilte Systeme aus dem 4. Semester erstellt werden.
 
+Das Programmsystem wurde auf einem Linux Debian 12 Computer geschrieben und getestet.
+Es wurde ein Firefox Browser und der Tomcat Server mit der Version Apache Tomcat/9.0.70 (Debian) verwendet.
+
+JSPs wurden grundsätzlich für den Bestellvorgang verwendet, da hier sehr gut mit HTML-Funktionen gearbeitet werden kann und die Einbindung von Beans recht leicht und flüssig funktioniert.
+Bei der Rechnungserstellung wird auf Grund der vielen Logik und der mathematischen Rechnungen auf Servlets gesetzt.
+Sie erlauben übersichtlicheren und unkomplizierteren Programmcode, da direkt mit Java gearbeitet wird und keine Tags verwendet werden müssen.
+
 \section{Index.jsp} % (fold)
 \label{sec:Index.jsp}
 
@@ -215,4 +222,13 @@ Ansonsten wird der Benutzer direkt auf die Startseite geleitet.
 
 % section Rechnungen (end)
 
+\section{Die Util-Klasse} % (fold)
+\label{sec:Die Util-Klasse}
+
+Die Util-Klasse fungiert als eine Sammlung von Methoden, die an mehreren Stellen des Programmsystems Anwendung finden und deshalb an einem Ort gesammelt und bereitgestellt werden.
+Für genauere Informationen zu den einzelnen Methoden und deren Funktionsweise, ist der Code ausführlich kommentiert.
+
+% section Die Util-Klasse (end)
+
 % chapter Seitenübersicht (end)
+
