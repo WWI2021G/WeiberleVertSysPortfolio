@@ -18,4 +18,4 @@ Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 - [x] Code clean up
 - [x] Aufgabe nochmal durchlesen und Anforderungen kontrollieren
 - [x] Kommentieren und gleichzeitig code anschauen und sexy machen
-- [ ] Dokumentation LaTeX - Doc branch
+- [x] Dokumentation LaTeX - Doc branch
