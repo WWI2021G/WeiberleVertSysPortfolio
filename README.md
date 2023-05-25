@@ -1,7 +1,7 @@
 # WeiberleVertSysPortfolio
 Portfolioaufgabe vom 4. Semester in Verteilte Systeme
 
-## Todos
+## TODOs
 - [x] Maske für neue Bestellungen
 - [x] Datenspeicherung anlegen
 - [x] Daten von neuen Bestellungen einlesen
